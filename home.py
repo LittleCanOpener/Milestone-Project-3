@@ -1,8 +1,8 @@
 """
-The Classic Asteroid game 
+Imports
 """
 import pygame
-
+import math
 """
 Screen width & height
 """
@@ -25,7 +25,6 @@ Title
 """
 pygame.display.set_caption('Asteroid')
 win = pygame.display.set_mode((sw, sh))
-
 clock = pygame.time.Clock()
 
 gameover = False
@@ -37,14 +36,22 @@ class Player(object):
         self.h = self.img.get_height()
         self.x = sw//2
         self.y = sh //2
+        self.angle = 0
+        self.rotatedSurf = pygame.transfrom.rotate(self.img, self.angle)
+        self.rotatedRect = self.rotatedSurf.get_rect()
+        self.rotatedRect.center = (self.x, self.y)
+        self.cosine = math.cos(math.radians(self.angle + 90))
+        self.sine = math.sin(math.radians(self.angle + 90))
+        self.head = (self.x + self.cosine * self.w//2, self.y - self.sine * self.h//2)
 
     def draw(self, win):
-        win.blit(self.img, [self.x, self.y, self.w, self.x])
+        win.blit(self.img, [self.x, self.y, self.w, self.h])
 
 def redrawGameWindow():
     win.blit(bg (0,0))
     player.draw(win)
     pygame.display.update()
+
 
 player = Player()    
 """
