@@ -9,16 +9,16 @@ Screen width & height
 sw = 800
 sh = 800
 """
-Importing images onto the screen.
+Background, Player and Enemy Images
 """
-bg = pygame.image.load('#')
+bg = pygame.image.load('./assets/images/space.png')
 spaceship = pygame.image.load('./assets/images/spaceship.png')
-asteroid = pygame.image.load('./assets/images/#')
-asteroid = pygame.image.load('./assets/images/#')
-asteroid = pygame.image.load('./assets/images/#')
-asteroid = pygame.image.load('./assets/images/#')
-asteroid = pygame.image.load('./assets/images/#')
-asteroid = pygame.image.load('./assets/images/#')
+asteroid = pygame.image.load('./assets/images/asteroid1.png')
+asteroid = pygame.image.load('./assets/images/asteroid2.png')
+asteroid = pygame.image.load('./assets/images/asteroid3.png')
+asteroid = pygame.image.load('./assets/images/asteroid4.png')
+asteroid = pygame.image.load('./assets/images/asteroid5.png')
+asteroid = pygame.image.load('./assets/images/asteroid6.png')
 
 """
 Title
