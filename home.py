@@ -1,6 +1,3 @@
-"""
-Imports
-"""
 import pygame
 import math
 """
@@ -19,7 +16,6 @@ asteroid = pygame.image.load('./assets/images/asteroid3.png')
 asteroid = pygame.image.load('./assets/images/asteroid4.png')
 asteroid = pygame.image.load('./assets/images/asteroid5.png')
 asteroid = pygame.image.load('./assets/images/asteroid6.png')
-
 """
 Title
 """
@@ -45,8 +41,41 @@ class Player(object):
         self.head = (self.x + self.cosine * self.w//2, self.y - self.sine * self.h//2)
 
     def draw(self, win):
-        win.blit(self.img, [self.x, self.y, self.w, self.h])
-
+        #win.blit(self.img, [self.x, self.y, self.w, self.h])
+        win.blit(self.rotatedSurf, self.rotatedRect)
+    """
+    Movement
+    """
+    def turnleft(self):
+        self.angle += 5
+        self.rotatedSurf = pygame.transfrom.rotate(self.img, self.angle)
+        self.rotatedRect = self.rotatedSurf.get_rect()
+        self.rotatedRect.center = (self.x, self.y)
+        self.cosine = math.cos(math.radians(self.angle + 90))
+        self.sine = math.sin(math.radians(self.angle + 90))
+        self.head = (self.x + self.cosine + self.w//2, self.y - self.sine * self.h//2)
+    
+    def turnright(self):
+        self.angle -= 5
+        self.rotatedSurf = pygame.transfrom.rotate(self.img, self.angle)
+        self.rotatedRect = self.rotatedSurf.get_rect()
+        self.rotatedRect.center = (self.x, self.y)
+        self.cosine = math.cos(math.radians(self.angle + 90))
+        self.sine = math.sin(math.radians(self.angle + 90))
+        self.head = (self.x + self.cosine + self.w//2, self.y - self.sine * self.h//2)
+    
+    def moveforward(self):
+        self.x += self.cosine * 6
+        self.y -= self.sine * 6
+        self.rotatedSurf = pygame.transfrom.rotate(self.img, self.angle)
+        self.rotatedRect = self.rotatedSurf.get_rect()
+        self.rotatedRect.center = (self.x, self.y)
+        self.cosine = math.cos(math.radians(self.angle + 90))
+        self.sine = math.sin(math.radians(self.angle + 90))
+        self.head = (self.x + self.cosine + self.w//2, self.y - self.sine * self.h//2)
+"""
+Update Function
+"""
 def redrawGameWindow():
     win.blit(bg (0,0))
     player.draw(win)
@@ -61,7 +90,13 @@ run = True
 while run:
     clock.tick(60)
     if not gameover:
-        pass
+        keys = pygame.key.get_pressed()
+        if keys[pygame.K_LEFT]:
+            player.turnleft()
+        if keys[pygame.K_RIGHT]:
+            player.turnright()
+        if keys[pygame.K_UP]:
+            player.moveforward()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
