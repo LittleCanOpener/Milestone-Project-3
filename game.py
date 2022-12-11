@@ -19,7 +19,7 @@ asteroid = pygame.image.load('./assets/images/asteroid4.png')
 asteroid = pygame.image.load('./assets/images/asteroid5.png')
 asteroid = pygame.image.load('./assets/images/asteroid6.png')
 """
-Title
+Title & Defult Settings
 """
 pygame.display.set_caption('Asteroid')
 win = pygame.display.set_mode((sw, sh))
@@ -28,7 +28,9 @@ clock = pygame.time.Clock()
 gameover = False
 lives = 3
 score = 0
-
+"""
+Player image behaviour and movement functions
+"""
 class Player(object):
     def __init__(self):
         self.img = spaceship
@@ -45,11 +47,9 @@ class Player(object):
         self.head = (self.x + self.cosine * self.w//2, self.y - self.sine * self.h//2)
 
     def draw(self, win):
-        #win.blit(self.img, [self.x, self.y, self.w, self.h])
         win.blit(self.rotatedSurf, self.rotatedRect)
     """
-    Movement -
-    Turn Left
+    Movement - Turn Left
     """
     def turnleft(self):
         self.angle += 5
@@ -61,10 +61,8 @@ class Player(object):
         self.head = (self.x + self.cosine * self.w//2, self.y - self.sine * self.h//2)
 
     """
-    Movement -
-    Turn Right
+    Movement - Turn Right
     """
-
     def turnright(self):
         self.angle -= 5
         self.rotatedSurf = pygame.transfrom.rotate(self.img, self.angle)
@@ -75,10 +73,8 @@ class Player(object):
         self.head = (self.x + self.cosine * self.w//2, self.y - self.sine * self.h//2)
 
     """
-    Movement -
-    Move Forward
+    Movement - Move Forward
     """
-
     def moveforward(self):
         self.x += self.cosine * 6
         self.y -= self.sine * 6
@@ -90,7 +86,7 @@ class Player(object):
         self.head = (self.x + self.cosine * self.w//2, self.y - self.sine * self.h//2)
 
     """
-    If, statement preventing the player to move off screen
+    If, statement preventing the player to move off screen and disappeare 
     Player will appear on the opposite side of the board when moved out of view
     """
     def updateLocation(self):
@@ -102,7 +98,10 @@ class Player(object):
             self.y = sh
         elif self.y > sh + 50:
             self.y = 0
-
+    """
+    Bullet behaviour, When fired, goes from image center, straight forward.
+    Off screen checker to conserve FPS + RAM
+    """
 class Bullet(object):
     def __init__(self):
         self.point = player.head
@@ -124,7 +123,9 @@ class Bullet(object):
     def checkOffScreen(self):
         if self.x <-50 or self.x > sw or self.y > sh or self.y <-50:
             return True
-
+"""
+Asteroids 
+"""
 class  asteroid(object):
     def __init__(self, rank):
         self.rank = rank
