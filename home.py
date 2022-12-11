@@ -262,6 +262,7 @@ while run:
                 else: 
                     gameover = False
                     lives = 3
+                    score = 0
                     asteroids.clear()
     
     redrawGameWindow()
