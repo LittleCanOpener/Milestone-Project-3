@@ -27,6 +27,7 @@ clock = pygame.time.Clock()
 
 gameover = False
 lives = 3
+score = 0
 
 class Player(object):
     def __init__(self):
@@ -158,12 +159,18 @@ def redrawGameWindow():
     win.blit(bg (0,0))
     font = pygame.font.SysFont("arial", 30)
     livesText = font.render("Lives: " +str(lives), 1, (255, 255, 255))
+    playAgainText = font.render("Press Space to Play Again", 1, (255, 255, 255))
+    scoreText = font.render("Score: " +str(score), 1, (255, 255, 255))
 
     player.draw(win)
     for a in asteroids:
         a.draw(win)
     for b in playerBullets:
         b.draw(win)
+    
+    if gameover:
+        win.blit(playAgainText, (sw//2-playAgainText.get_width()//2, sh//2 - playAgainText.get_height()//2))
+    win.blit(scoreText, (sw- scoreText.get_width() -25, 25))
     win.blit(livesText, (25, 25))
     pygame.display.update()
 
@@ -204,12 +211,13 @@ while run:
                     break
 
         """
-        Bullet Collision & Spawn smaller asteroids
+        Bullet Collision & Spawn smaller asteroids, Score
         """
         for b in playerBullets:
             if (b.x >= a.x and b.x <= a.x + a.w) or  b.x + b.w >= a.x and b.x + b.w <= a.x + a.w:
                 if (b.y >= a.y and b.y <= a.y + a.h) or b.y + b.h >= a.y and b.y + b.h <= a.y + a.h:
                     if a.rank == 3:
+                        score += 10
                         na1 = Asteroid(2)
                         na2 = Asteroid(2)
                         na1.x = a.x
@@ -219,6 +227,7 @@ while run:
                         asteroids.append(Asteroid(na1))
                         asteroids.append(Asteroid(na2))
                     elif a.rank == 2:
+                        score += 20
                         na1 = Asteroid(1)
                         na2 = Asteroid(1)
                         na1.x = a.x
@@ -227,6 +236,8 @@ while run:
                         na2.y = a.y
                         asteroids.append(Asteroid(na1))
                         asteroids.append(Asteroid(na1))
+                    else:
+                        score += 30
                     asteroids.pop(asteroids.index(a))
                     playerBullets.pop(playerBullets.index(b))
 
@@ -248,6 +259,10 @@ while run:
             if event.key == pygame.K_SPACE:
                 if not gameover:
                     playerBullets.append(Bullet())
+                else: 
+                    gameover = False
+                    lives = 3
+                    asteroids.clear()
     
     redrawGameWindow()
 pygame.quit()
