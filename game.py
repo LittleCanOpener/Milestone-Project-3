@@ -1,12 +1,26 @@
+
 import pygame
 import math
 import random
-pygame.init()
+import sys
+from pygame.locals import *
+
 """
 Screen width & height
 """
 sw = 800
 sh = 800
+"""
+Error Counter
+"""
+check_errors = pygame.init()
+if check_errors[1] > 0:
+    print(f'[!] Had {check_errors[1]} errors when initialising game, exiting...')
+    sys.exit(-1)
+else:
+    print('[+] Game successfully initialised')
+
+
 """
 Background, Player and Enemy Images
 """
@@ -19,10 +33,10 @@ asteroid = pygame.image.load('./assets/images/asteroid4.png')
 asteroid = pygame.image.load('./assets/images/asteroid5.png')
 asteroid = pygame.image.load('./assets/images/asteroid6.png')
 """
-Title & Defult Settings
+Title, Canvas declaration & Defult Settings
 """
-pygame.display.set_caption('Asteroid')
 win = pygame.display.set_mode((sw, sh))
+pygame.display.set_caption('Asteroid')
 clock = pygame.time.Clock()
 
 gameover = False
@@ -183,7 +197,7 @@ count = 0
 
 
 """
-Main While Loop
+Main Loop
 """
 run = True
 while run:
@@ -243,7 +257,7 @@ while run:
                     playerBullets.pop(playerBullets.index(b))
 
         if lives <= 0:
-            gameover            
+            gameover = True            
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
