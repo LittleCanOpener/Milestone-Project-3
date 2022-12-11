@@ -1,6 +1,7 @@
 import pygame
 import math
 import random
+pygame.init()
 """
 Screen width & height
 """
@@ -25,6 +26,7 @@ win = pygame.display.set_mode((sw, sh))
 clock = pygame.time.Clock()
 
 gameover = False
+lives = 3
 
 class Player(object):
     def __init__(self):
@@ -87,7 +89,7 @@ class Player(object):
         self.head = (self.x + self.cosine * self.w//2, self.y - self.sine * self.h//2)
 
     """
-    If statement preventing the player to move off screen
+    If, statement preventing the player to move off screen
     Player will appear on the opposite side of the board when moved out of view
     """
     def updateLocation(self):
@@ -150,15 +152,19 @@ class  asteroid(object):
 
 
 """
-Update Function
+Update Function, Lives Size & Postioning
 """
 def redrawGameWindow():
     win.blit(bg (0,0))
+    font = pygame.font.SysFont("arial", 30)
+    livesText = font.render("Lives: " +str(lives), 1, (255, 255, 255))
+
     player.draw(win)
     for a in asteroids:
         a.draw(win)
     for b in playerBullets:
         b.draw(win)
+    win.blit(livesText, (25, 25))
     pygame.display.update()
 
 
@@ -184,10 +190,18 @@ while run:
             b.move()
             if b.checkOffScreen():
                 playerBullets.pop(playerBullets.index(b))
-        
+        """
+        Asteroid movement and collision with player
+        """
         for a in asteroids:
             a.x += a.xv
             a.y += a.yv
+
+            if (player.x >= a.x and player.x <= a.x + a.w) or (player.x + player.w >= a.x and player.x + player.w <= a.x + a.w):
+                if (player.y >= a.y and player.y <= a.y + a.h) or (player.y + player.h >= a.y and player.y + player.h <= a.y + a.h):
+                    lives -= 1
+                    asteroids.pop(asteroids.index(a))
+                    break
 
         """
         Bullet Collision & Spawn smaller asteroids
@@ -215,6 +229,9 @@ while run:
                         asteroids.append(Asteroid(na1))
                     asteroids.pop(asteroids.index(a))
                     playerBullets.pop(playerBullets.index(b))
+
+        if lives <= 0:
+            gameover            
 
         keys = pygame.key.get_pressed()
         if keys[pygame.K_LEFT]:
