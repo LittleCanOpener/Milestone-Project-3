@@ -1,5 +1,5 @@
-<h1>Title:</h1>
-<img src="#">
+<h1>Dice Rolling Simulator:</h1>
+<img src="./assets/images/pexels-photo-by-vanderlei-longo.jpeg">
 <h1>Deployment</h1>
 
 <ul>
@@ -49,20 +49,20 @@
 <h1>Technologies</h1>
 <h3>GitPod:</h3>
 <p>
-    <img src="./assets/images/icons/gitpod.svg" width="50px" height="50px"><br>
+    <img src="./assets/images/gitpod.svg" width="50px" height="50px"><br>
     <a href="https://www.gitpod.io/" target="_blank">GitPod</a>
     was used to write up the code for the project and using the GitPod terminal to commit everything to GitHub.
 </p><hr>
 
 <h3>GitHub:</h3>
-    <p><img src="./assets/images/icons/github.png" width="50px" height="50px"><br>
+    <p><img src="./assets/images/github.png" width="50px" height="50px"><br>
     <a href="https://github.com/" target="_blank">GitHub</a>
     was used to store all the code for this project after being pushed from GitPod.
 </p><hr>
 
 <h3>Python:</h3>
 <p>
-    <img src="" width="50px" height="50px"><br>
+    <img src="./assets/images/python.png" width="50px" height="50px"><br>
     <a href="" target="_blank">Python</a> 
     </p>
 <h4></h4>

@@ -47,7 +47,6 @@ DICE_ART = {
     ),
 }
 
-
 dice = []
 total = 0
 while True:
