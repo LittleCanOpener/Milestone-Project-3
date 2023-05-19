@@ -1,6 +1,25 @@
-<h1>Dice Rolling Simulator:</h1>
+<h1>Dice Rolling Simulator</h1>
 <img src="./assets/images/pexels-photo-by-vanderlei-longo.jpeg">
-<h1>Deployment</h1>
+<h1>Instructions</h1>
+<ul>
+    <h2>Description</h2>
+    <li>
+        This is a terminal based program.
+        That means, <br>
+        It is a program that acts as a wrapper and allows us to enter commands that the computer processes.
+    </li><hr>
+    <h3>Commands</h3>
+    <li>
+        In order to start the program you'll need to go down to <a href="#deploment">Deployment</a>:
+    </li><br>
+    <li>
+        Once you've started the program you'll need to run it.<br>
+        Inside the terminal type: <br>
+        python3 main.py <br>
+    </li>
+</ul>
+
+<h1 id="deploment">Deployment</h1>
 
 <ul>
     <h2>Using Github Pages</h2>
@@ -60,8 +79,7 @@
 <h3>Python:</h3>
 <p>
     <img src="./assets/images/python.png" width="50px" height="50px"><br>
-    <a href="" target="_blank">Python</a> 
-    </p>
-<h4></h4>
-<p>
+    <a href="" target="_blank">Python</a>  is the top preferred language for data science and research. Since its syntax is easily understandable and adaptable, people with little-to-no development experience can easily learn Python and use it to manipulate data for research, reporting, predictable or regression analyses
+    <h4>Here's a fun fact:</h4>
+    Python was named after the BBC show<br> <strong>Monty Python's Flying Circus</strong><br> and has nothing todo with reptiles.
 </p><hr>
