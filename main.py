@@ -48,13 +48,11 @@ DICE_ART = {
 }
 
 
-
-
 dice = []
 total = 0
 while True:
     try:
-        num_of_dice = int(input("How many dice do you want to roll? [1-6] "))
+        num_of_dice = int(input("How many dice do you want to roll? "))
         break
     except ValueError:
         print("Please Choose a number")
