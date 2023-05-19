@@ -83,3 +83,16 @@
     <h4>Here's a fun fact:</h4>
     Python was named after the BBC show<br> <strong>Monty Python's Flying Circus</strong><br> and has nothing todo with reptiles.
 </p><hr>
+
+<h1>Special Thanks & Acknowledgements</h1>
+<table><tr>
+<th>Mentor<h3>Ronan McClelland</h3></th>
+</tr></table>
+<h3>For Information & Images</h3>
+<ul>
+<li><a href="https://realpython.com/python-dice-roll/#project-overview" target="_blank">Real Python</a> Dice Simulator Guide by Leodanis Pozo Ramos</li>
+<li><a href="https://www.python.org/" target="_blank">Python</a> Learning Python</li>
+
+<li><a href="https://www.pexels.com/@derlei/" target="_blank">
+Vanderlei Longo</a> For the Image</li>
+
