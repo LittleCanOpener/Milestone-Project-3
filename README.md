@@ -79,7 +79,7 @@
 <h3>Python:</h3>
 <p>
     <img src="./assets/images/python.png" width="50px" height="50px"><br>
-    <a href="" target="_blank">Python</a>  is the top preferred language for data science and research. Since its syntax is easily understandable and adaptable, people with little-to-no development experience can easily learn Python and use it to manipulate data for research, reporting, predictable or regression analyses
+    <a href="https://www.python.org/" target="_blank">Python</a>  is the top preferred language for data science and research. Since its syntax is easily understandable and adaptable, people with little-to-no development experience can easily learn Python and use it to manipulate data for research, reporting, predictable or regression analyses
     <h4>Here's a fun fact:</h4>
     Python was named after the BBC show<br> <strong>Monty Python's Flying Circus</strong><br> and has nothing todo with reptiles.
 </p><hr>
