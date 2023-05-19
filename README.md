@@ -5,7 +5,7 @@
 <ul>
     <h2>Using Github Pages</h2>
     <li>
-        Navigate to the GitHub <a href="#" target="_blank">Repository</a>:
+        Navigate to the GitHub <a href="https://github.com/LittleCanOpener/Milestone-Project-3" target="_blank">Repository</a>:
     </li>
     <li>
         Click the 'Settings' Tab.
@@ -23,13 +23,10 @@
         Click on the link to go to the live deployed page.
     </li>
 </ul>
-<h2>
-    <a href="#" target="_blank"> Live Preview</a>
-</h2>
 <ul>
     <h2>Run Locally</h2>
     <li>
-        Navigate to the GitHub <a href="#" target="_blank">Repository</a>:
+        Navigate to the GitHub <a href="https://github.com/LittleCanOpener/Milestone-Project-3" target="_blank">Repository</a>:
     </li>
     <li>
         Click the Code drop down menu.
