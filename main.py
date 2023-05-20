@@ -1,7 +1,6 @@
 # Dice Rolling Simulator
 # libraries
 import random
-import sys
 # Dice art by Leodanis Pozo Ramos.
 DICE_ART = {
     1: (
@@ -54,9 +53,6 @@ while True:
     try:
         num_of_dice = int(input("How many dice do you want to roll [1-10]? "))
         if num_of_dice <= 10:
-            continue
-        if not num_of_dice:
-            print("Please do not leave the input blank")
             break
     except ValueError:
         print("Please Choose a number")
