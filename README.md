@@ -1,5 +1,5 @@
 <h1>Dice Rolling Simulator</h1>
-<img src="./assets/images/pexels-photo-by-vanderlei-longo.jpeg">
+    <img src="./assets/images/pexels-photo-by-vanderlei-longo.jpeg" height="500px">
 <h1>Instructions</h1>
 <ul>
     <h2>Description</h2>
